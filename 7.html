@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shin Donghyeon (신동현) | Brand Strategist & Beauty Marketer Portfolio</title>
+  
+  <!-- Fonts: Pretendard & Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS & D3.js & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              DEFAULT: '#1c3427',
+              dark: '#13241b',
+              light: '#2a4a39',
+              subtle: '#eaf1ec',
+            },
+            wood: {
+              DEFAULT: '#b28d68',
+              warm: '#c8a27d',
+              light: '#f5efe8',
+              deep: '#735336',
+            },
+            parchment: '#fdfbf7',
+            ink: '#1d231f',
+            sand: '#f2ede4',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Pretendard', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar and Editorial Polish */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #fdfbf7;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c8a27d;
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #1c3427;
+    }
+
+    .editorial-border {
+      border: 1px solid rgba(178, 141, 104, 0.28);
+    }
+    .soft-shadow {
+      box-shadow: 0 16px 36px -12px rgba(28, 52, 39, 0.08);
+    }
+    .radar-tooltip {
+      position: absolute;
+      text-align: center;
+      padding: 8px 14px;
+      font-size: 12px;
+      background: #13241b;
+      color: #fdfbf7;
+      border-radius: 8px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease-in-out;
+      z-index: 50;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+
+    /* Accord Wheel Smoothed Hover & Transitions */
+    .wheel-node-group {
+      cursor: pointer;
+    }
+    .wheel-node-circle {
+      transition: stroke 0.25s ease, stroke-width 0.25s ease;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-parchment text-ink font-sans antialiased selection:bg-forest-subtle selection:text-forest">
+
+  <!-- D3 Charts Tooltip -->
+  <div id="d3-tooltip" class="radar-tooltip"></div>
+
+  <!-- Global Sticky Nav (한 줄 고정 목차) -->
+  <nav class="sticky top-0 z-40 bg-parchment/95 backdrop-blur-md border-b border-wood/20">
+    <div class="max-w-6xl mx-auto px-6 h-20 py-4 flex items-center justify-between gap-4">
+      <a href="#" class="flex items-center gap-3 group shrink-0">
+        <div class="w-11 h-11 rounded-full bg-forest text-parchment flex items-center justify-center font-serif text-xl font-bold tracking-wider group-hover:bg-wood transition-colors shadow-sm">
+          SD
+        </div>
+        <div>
+          <span class="block font-serif text-lg font-bold text-forest leading-none">SHIN DONGHYEON</span>
+          <span class="text-[11px] text-wood-deep tracking-wider uppercase font-display font-medium">Business & Beauty Brand Strategist</span>
+        </div>
+      </a>
+      
+      <!-- 목차 1줄 고정 -->
+      <div class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-forest/80 shrink-0">
+        <a href="#about" class="whitespace-nowrap hover:text-wood-deep transition-colors">프로필 요약</a>
+        <a href="#hook" class="whitespace-nowrap hover:text-wood-deep transition-colors">핵심 차별성</a>
+        <a href="#experience" class="whitespace-nowrap hover:text-wood-deep transition-colors">실무 & 연합기지 복무</a>
+        <a href="#insights" class="whitespace-nowrap hover:text-wood-deep transition-colors">5D 역량 레이더</a>
+        <a href="#cdj" class="whitespace-nowrap hover:text-wood-deep transition-colors">소비자 CDJ 분석</a>
+        <a href="#lifestyle" class="whitespace-nowrap hover:text-wood-deep transition-colors">3대 취향 & 리추얼</a>
+      </div>
+
+      <a href="mailto:mixhyun@gmail.com" class="px-5 py-2.5 rounded-full border border-forest text-xs font-semibold text-forest hover:bg-forest hover:text-parchment transition-all flex items-center gap-2 shrink-0">
+        <i data-lucide="mail" class="w-3.5 h-3.5"></i> mixhyun@gmail.com
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="about" class="relative overflow-hidden py-16 lg:py-24 border-b border-wood/20">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-forest/5 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-wood/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Main Bio Column -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sand text-forest text-xs tracking-wider font-semibold border border-wood/30">
+              <span class="w-2 h-2 rounded-full bg-forest animate-pulse"></span>
+              2003년생 · 경영학과 3학년
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-subtle text-forest text-xs font-semibold border border-forest/20">
+              <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 공군 병장 만기전역 (OSAN AB)
+            </span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-wood-light text-wood-deep text-xs font-semibold border border-wood/30">
+              <i data-lucide="users" class="w-3.5 h-3.5"></i> ESFJ 친화적 서포터
+            </span>
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-forest leading-tight font-bold">
+            소비자의 시선을 멈추고,<br>
+            <span class="font-bold text-wood-deep">브랜드의 잔향</span>을 남기다.
+          </h1>
+
+          <p class="text-base sm:text-lg text-ink/80 leading-relaxed">
+            안녕하세요, <strong>뷰티 마케팅 & 브랜딩</strong>의 본질을 설계하는 신동현(Shin Donghyeon)입니다.<br class="hidden sm:inline">
+            오산 미 공군기지(OSAN AB) 한미연합 환경에서 체득한 <strong>다문화 조율력</strong>과 올리브영 현장에서 검증한 <strong>소비자 구매 여정(CDJ) 데이터</strong>를 바탕으로, 감각적 스토리와 정교한 비즈니스 프레임워크를 융합합니다.
+          </p>
+
+          <!-- Core Value Statement / Creed -->
+          <div class="p-6 bg-white/80 rounded-2xl editorial-border soft-shadow relative overflow-hidden">
+            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-forest"></div>
+            <div class="flex items-center justify-between mb-1">
+              <p class="text-xs uppercase tracking-widest text-wood-deep font-semibold">Vision & Aspiration</p>
+              <span class="text-[11px] font-mono text-stone-400">Core Goal</span>
+            </div>
+            <blockquote class="font-serif text-2xl font-bold text-forest">
+              "모든 분야의 거두(巨頭)가 되자."
+            </blockquote>
+            <p class="text-xs text-stone-600 mt-2 font-sans leading-relaxed">
+              자신의 한계선에 안주하지 않고 다각도의 산업 도메인을 흡수하여, 어떤 조직과 시장에서도 지대한 기준점을 세우는 비즈니스 거두로 도약합니다.
+            </p>
+          </div>
+
+          <!-- Quick Spec Table -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs">
+            <div class="p-3 bg-white rounded-xl border border-wood/20 text-center">
+              <span class="text-stone-400 block mb-0.5">전공</span>
+              <strong class="text-forest text-sm">경영학과 3학년</strong>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-wood/20 text-center">
+              <span class="text-stone-400 block mb-0.5">군 복무</span>
+              <strong class="text-forest text-sm">OSAN AB 연합기지</strong>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-wood/20 text-center">
+              <span class="text-stone-400 block mb-0.5">현장 전문성</span>
+              <strong class="text-forest text-sm">올리브영 세일즈</strong>
+            </div>
+            <div class="p-3 bg-white rounded-xl border border-wood/20 text-center">
+              <span class="text-stone-400 block mb-0.5">소통 스타일</span>
+              <strong class="text-forest text-sm">ESFJ 공감·실행</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: 증명사진 규격 상반신 포커스 카드 -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-full max-w-md bg-white rounded-3xl p-7 editorial-border soft-shadow relative">
+            <div class="w-full rounded-2xl bg-gradient-to-br from-sand via-parchment to-wood-light flex flex-col items-center p-6 relative overflow-hidden border border-wood/20">
+              
+              <div class="w-full flex justify-between items-center mb-4 z-10">
+                <span class="font-serif text-2xl text-forest font-bold tracking-tight">PROFILE</span>
+                <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-forest text-parchment">OFFICIAL</span>
+              </div>
+
+              <!-- 증명사진 비율(3:4) & 상반신 중심 배치 컨테이너 -->
+              <div class="relative w-44 sm:w-48 aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border-4 border-white bg-sand/40 mb-4 group">
+                <img 
+                  src="Gemini_Generated_Image_9amepn9amepn9ame.png" 
+                  alt="신동현 프로필 사진" 
+                  class="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';"
+                />
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl pointer-events-none"></div>
+              </div>
+
+              <div class="text-center space-y-1 mb-2">
+                <h4 class="font-serif text-xl font-bold text-forest">신동현 <span class="font-sans text-xs font-semibold text-wood-deep ml-1">Shin Donghyeon</span></h4>
+                <p class="text-xs text-stone-600 font-medium">경영학과 3학년 · 뷰티 브랜드 기획자</p>
+              </div>
+
+              <div class="w-full pt-3 mt-1 border-t border-wood/25 flex justify-between items-center text-xs text-ink/80 z-10">
+                <span class="font-semibold text-forest">2003년생 (만 23세)</span>
+                <span class="font-mono text-wood-deep">mixhyun@gmail.com</span>
+              </div>
+            </div>
+
+            <!-- Recruiter Quick Summary Action -->
+            <div class="mt-5 flex items-center justify-between gap-3">
+              <a href="#experience" class="flex-1 py-3 px-4 bg-forest text-parchment rounded-xl text-center text-xs font-semibold hover:bg-forest-light transition-all flex items-center justify-center gap-1.5">
+                <i data-lucide="file-text" class="w-3.5 h-3.5"></i> 실무 이력 자세히 보기
+              </a>
+              <button onclick="copyContact('mixhyun@gmail.com')" class="p-3 bg-sand text-forest rounded-xl hover:bg-wood-light transition-all border border-wood/30" title="이메일 복사">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+            <div id="copy-toast" class="text-[11px] text-wood-deep text-center mt-2 font-medium opacity-0 transition-opacity">
+              이메일 주소가 클립보드에 복사되었습니다.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hook Section : 3 Core Pillars for Recruiters -->
+  <section id="hook" class="py-16 bg-white border-b border-wood/20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-semibold text-wood-deep font-display">Recruitment Point</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest mt-1">왜 신동현이어야 하는가?</h2>
+        <p class="text-sm text-ink/75 mt-2">채용 담당자와 마케팅 실무진이 신뢰할 수 있는 3가지 실무 강점</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1: Global Joint Base -->
+        <div class="p-7 rounded-3xl bg-parchment editorial-border soft-shadow flex flex-col justify-between hover:border-forest transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-forest text-parchment flex items-center justify-center mb-5">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-wood-deep">PILLAR 01</span>
+            <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-2.5">글로벌 연합 커뮤니케이션</h3>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              OSAN AB 한미연합 작전 환경에서 미 공군(USAF)과 일상적으로 협업하며 문화적 다양성을 조율하고 즉각적인 문제 해결을 주도한 군 복무 경험을 갖추었습니다.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-wood/20 text-xs text-forest font-semibold flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-wood"></i> 다국적 협업 & 리스크 매니지먼트
+          </div>
+        </div>
+
+        <!-- Card 2: Retail Customer Insights -->
+        <div class="p-7 rounded-3xl bg-parchment editorial-border soft-shadow flex flex-col justify-between hover:border-forest transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-wood text-parchment flex items-center justify-center mb-5">
+              <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-wood-deep">PILLAR 02</span>
+            <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-2.5">현장 검증된 타깃 소구력</h3>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              올리브영 일선에서 10대부터 50대까지 다양한 고객군을 응대하며, 추상적인 마케팅 문구가 아닌 고객의 실제 언어와 피부 고민에 기반한 판매 소구 포인트를 체득했습니다.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-wood/20 text-xs text-forest font-semibold flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-wood"></i> 고객 구매 여정(CDJ) 분석 및 전환 유도
+          </div>
+        </div>
+
+        <!-- Card 3: ESFJ Synergist -->
+        <div class="p-7 rounded-3xl bg-parchment editorial-border soft-shadow flex flex-col justify-between hover:border-forest transition-all">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-sand text-forest flex items-center justify-center mb-5 border border-wood/30">
+              <i data-lucide="heart-handshake" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-mono font-bold text-wood-deep">PILLAR 03</span>
+            <h3 class="font-serif text-xl font-bold text-forest mt-1 mb-2.5">신뢰 기반의 ESFJ 서포터</h3>
+            <p class="text-xs text-stone-600 leading-relaxed mb-4">
+              뛰어난 친화력과 배려심으로 팀원 간의 유기적 화합을 이끌며, 조직의 세부적인 프로세스를 묵묵하고 완결성 있게 완수하는 서포티브 리더십을 발휘합니다.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-wood/20 text-xs text-forest font-semibold flex items-center gap-1.5">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-wood"></i> 팀워크 극대화 및 디테일 실행력
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deep Dive Experience Section -->
+  <section id="experience" class="py-20 border-b border-wood/20 bg-sand/30">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="max-w-2xl mb-12">
+        <span class="text-xs uppercase tracking-widest font-semibold text-wood-deep font-display">Practical Track Record</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest mt-1">실무 전문성 & 군 복무 심층 분석</h2>
+        <p class="text-sm text-ink/75 mt-2">
+          단순한 이력 나열을 넘어 상황(Situation), 과업(Task), 행동(Action), 결과(Result)를 바탕으로 신동현의 역량을 구조화했습니다.
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <!-- Experience 1: OSAN AB USAF Combined Base -->
+        <article class="bg-white rounded-3xl p-8 sm:p-10 editorial-border soft-shadow">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-wood/20 pb-5 mb-6">
+            <div>
+              <span class="inline-block px-3 py-1 rounded bg-forest text-parchment text-xs font-mono font-medium mb-1">
+                Military Leadership & Global Alliance
+              </span>
+              <h3 class="font-serif text-2xl font-bold text-forest">
+                대한민국 공군 병장 만기전역 · OSAN AB 한미연합기지 근무
+              </h3>
+              <p class="text-xs text-wood-deep font-medium mt-1">
+                오산 미 공군기지 주둔 연합 환경 | USAF(미 공군)와의 상시 합동 지원 및 부대 관리
+              </p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-mono text-stone-500 block">복무 기간</span>
+              <span class="text-sm font-bold text-forest">병장 만기전역</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="p-4 bg-parchment rounded-2xl border border-wood/20">
+              <div class="text-xs font-bold text-wood-deep mb-1 flex items-center gap-1">
+                <i data-lucide="crosshair" class="w-3.5 h-3.5"></i> 근무 환경 & 도전 과제
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                언어 및 군사 문화적 차이가 존재하는 한미 연합기지에서 양국 부대 간의 원활한 소통 창구 역할을 수행하고 규범을 준수하는 긴장도 높은 임무 수행.
+              </p>
+            </div>
+
+            <div class="p-4 bg-parchment rounded-2xl border border-wood/20">
+              <div class="text-xs font-bold text-forest mb-1 flex items-center gap-1">
+                <i data-lucide="wrench" class="w-3.5 h-3.5"></i> 핵심 수행 행동 (Action)
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                USAF 요원들과의 주기적 교류를 통해 업무 프로토콜을 사전 조율하고, 병장 분대장으로서 부대원들의 심리적 안정과 협업 시너지를 이끄는 솔선수범 발휘.
+              </p>
+            </div>
+
+            <div class="p-4 bg-parchment rounded-2xl border border-wood/20">
+              <div class="text-xs font-bold text-wood-deep mb-1 flex items-center gap-1">
+                <i data-lucide="trophy" class="w-3.5 h-3.5"></i> 체득된 비즈니스 역량
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                이문화 이해력, 높은 규율 속 주도적 커뮤니케이션, 위기 발생 시 차분하게 절차를 확립하는 스트레스 관리 및 완결력 체득.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-sand/60 rounded-xl flex items-start gap-3 text-xs text-stone-700">
+            <i data-lucide="quote" class="w-4 h-4 text-wood-deep shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-forest">실무적용 포인트:</strong>
+              글로벌 브랜드와의 라이선싱, 다국적 팀과의 마케팅 프로젝트 협업 시 장벽 없는 유연한 조율자(Coordinator)로 즉시 투입될 수 있는 소양을 증명합니다.
+            </div>
+          </div>
+        </article>
+
+        <!-- Experience 2: Olive Young Retail Experience -->
+        <article class="bg-white rounded-3xl p-8 sm:p-10 editorial-border soft-shadow">
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-wood/20 pb-5 mb-6">
+            <div>
+              <span class="inline-block px-3 py-1 rounded bg-wood text-parchment text-xs font-mono font-medium mb-1">
+                Retail Strategy & Consumer Insight
+              </span>
+              <h3 class="font-serif text-2xl font-bold text-forest">
+                올리브영(Olive Young) 현장 셀링 & 고객 구매 여정(CDJ) 고찰
+              </h3>
+              <p class="text-xs text-wood-deep font-medium mt-1">
+                국내 최대 H&B 스토어 현장 세일즈 | 연령대별 소구 포인트 발굴 및 구매 전환 설계
+              </p>
+            </div>
+            <div class="text-right">
+              <span class="text-xs font-mono text-stone-500 block">직무 영역</span>
+              <span class="text-sm font-bold text-forest">현장 고객 분석 & 셀링</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+            <div class="p-4 bg-parchment rounded-2xl border border-wood/20">
+              <div class="text-xs font-bold text-wood-deep mb-1 flex items-center gap-1">
+                <i data-lucide="eye" class="w-3.5 h-3.5"></i> 현장 문제의식
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                매대에 수천 개의 뷰티 브랜드가 난립하는 환경에서 고객이 어떤 언어와 제형, 시각적 단서에 반응하여 장바구니에 담는지 현장 관찰을 시작함.
+              </p>
+            </div>
+
+            <div class="p-4 bg-parchment rounded-2xl border border-wood/20">
+              <div class="text-xs font-bold text-forest mb-1 flex items-center gap-1">
+                <i data-lucide="sliders" class="w-3.5 h-3.5"></i> 타깃 맞춤형 셀링 전략
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                1020세대에겐 즉각적 트렌드·가성비·피부진정을, 3040세대에겐 안티에이징·성분 안전성·장벽 강화라는 차별화된 소구 포인트(USP)로 맞춤 제안.
+              </p>
+            </div>
+
+            <div class="p-4 bg-parchment rounded-2xl border border-wood/20">
+              <div class="text-xs font-bold text-wood-deep mb-1 flex items-center gap-1">
+                <i data-lucide="bar-chart-2" class="w-3.5 h-3.5"></i> 도출된 브랜드 인사이트
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">
+                단순 제품 스펙보다 '고객이 그 제품을 사용했을 때 마주할 라이프스타일 이미지'를 명확히 제시할 때 객단가와 체류 시간이 증대됨을 증명.
+              </p>
+            </div>
+          </div>
+
+          <div class="p-4 bg-sand/60 rounded-xl flex items-start gap-3 text-xs text-stone-700">
+            <i data-lucide="quote" class="w-4 h-4 text-forest shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-forest">실무적용 포인트:</strong>
+              책상 위에서 머무는 기획서가 아닌, 온·오프라인 매대 환경과 소비자의 실제 고민에 즉각적으로 화답하는 실전 뷰티 브랜딩 전략을 전개합니다.
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- D3 Radar & 5-Dimension Competencies (글씨 잘림 해결 섹션) -->
+  <section id="insights" class="py-20 bg-parchment border-b border-wood/20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-widest font-semibold text-wood-deep font-display">Competency Radar</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest mt-1">경영학도 신동현의 5차원 역량 매트릭스</h2>
+        <p class="text-sm text-ink/75 mt-2">
+          연합기지 복무, H&B 스토어 현장 경험, 경영학 전공 지식을 결합한 인터랙티브 D3 시각화 지도입니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- D3 Radar Chart Card (여백 및 overflow-visible 처리) -->
+        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl editorial-border soft-shadow flex flex-col items-center justify-center relative">
+          <div class="flex items-center justify-between w-full mb-3">
+            <h3 class="text-sm font-bold text-forest uppercase tracking-wider flex items-center gap-2">
+              <i data-lucide="radar" class="w-4 h-4 text-wood"></i> 다차원 실무 역량 밸런스
+            </h3>
+            <span class="text-[11px] text-wood-deep font-mono bg-wood-light px-2.5 py-0.5 rounded">D3.js SVG Dynamic</span>
+          </div>
+
+          <div id="radar-container" class="w-full flex justify-center items-center min-h-[420px] overflow-visible">
+            <!-- D3 Radar Appends Here -->
+          </div>
+          <p class="text-[11px] text-stone-400 mt-2">* 각 꼭짓점 노드에 마우스를 올리면 세부 점수와 역량 항목이 표시됩니다.</p>
+        </div>
+
+        <!-- Capability Detail Breakdown -->
+        <div class="lg:col-span-5 space-y-3.5">
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-wood/20 hover:border-forest transition-all">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-bold text-forest text-sm flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-forest"></span> 뷰티 마케팅 & 브랜딩
+              </span>
+              <span class="text-xs font-mono font-bold text-forest">96점</span>
+            </div>
+            <p class="text-xs text-stone-600">브랜드 스토리텔링, 패키지 질감, 감성적 가치 부여 및 타깃 페르소나 설계</p>
+          </div>
+
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-wood/20 hover:border-forest transition-all">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-bold text-forest text-sm flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-wood"></span> CDJ 구매여정 분석
+              </span>
+              <span class="text-xs font-mono font-bold text-wood-deep">94점</span>
+            </div>
+            <p class="text-xs text-stone-600">올리브영 현장 기반 탐색-비교-결제 단계별 이탈 방지 및 전환 최적화 분석</p>
+          </div>
+
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-wood/20 hover:border-forest transition-all">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-bold text-forest text-sm flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-forest-light"></span> 글로벌 협업 (OSAN AB)
+              </span>
+              <span class="text-xs font-mono font-bold text-forest-light">92점</span>
+            </div>
+            <p class="text-xs text-stone-600">미 공군(USAF)과의 실무 소통, 다문화 규범 조율 및 위기 대처 유연성</p>
+          </div>
+
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-wood/20 hover:border-forest transition-all">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-bold text-forest text-sm flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-stone-500"></span> 타깃별 현장 셀링
+              </span>
+              <span class="text-xs font-mono font-bold text-stone-700">90점</span>
+            </div>
+            <p class="text-xs text-stone-600">연령별·피부고민별 맞춤 화법 및 고객의 심리적 저항을 허무는 공감 셀링</p>
+          </div>
+
+          <div class="bg-white p-4 sm:p-5 rounded-2xl border border-wood/20 hover:border-forest transition-all">
+            <div class="flex items-center justify-between mb-1">
+              <span class="font-bold text-forest text-sm flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-wood-warm"></span> 팀 시너지 (ESFJ)
+              </span>
+              <span class="text-xs font-mono font-bold text-wood-deep">95점</span>
+            </div>
+            <p class="text-xs text-stone-600">경청과 배려를 바탕으로 한 부서 간 가교 역할 및 프로젝트 완결 실행력</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive CDJ & Fragrance Scent Wheel -->
+  <section id="cdj" class="py-20 border-b border-wood/20 bg-sand/40">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Side: CDJ Framework from Olive Young -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-wood-deep font-semibold">
+            <i data-lucide="git-branch" class="w-4 h-4 text-forest"></i> Consumer Decision Journey (CDJ)
+          </div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest">
+            고객의 발걸음마다<br>
+            <span class="font-bold text-wood-deep">맞춤형 소구점</span>을 배치하다.
+          </h2>
+          <p class="text-sm sm:text-base text-ink/80 leading-relaxed">
+            올리브영 현장에서 도출한 <strong>4단계 소비자 구매 여정 프레임워크</strong>입니다. 
+            단순히 좋은 성분을 알리는 것을 넘어, 고객이 어느 지점에서 망설이고 무엇에 확신을 얻는지를 파악합니다.
+          </p>
+
+          <div class="space-y-3">
+            <div class="p-4 bg-white rounded-2xl border border-wood/25 flex items-start gap-3.5">
+              <span class="w-7 h-7 rounded-full bg-forest text-parchment text-xs font-bold flex items-center justify-center shrink-0">1</span>
+              <div>
+                <strong class="text-sm text-forest block font-serif">트리거 & 인지 (Trigger & Awareness)</strong>
+                <p class="text-xs text-stone-600 mt-0.5">SNS 입소문이나 특정 계절 고민으로 매장에 진입한 고객의 즉각적인 시선 점유</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-wood/25 flex items-start gap-3.5">
+              <span class="w-7 h-7 rounded-full bg-wood text-parchment text-xs font-bold flex items-center justify-center shrink-0">2</span>
+              <div>
+                <strong class="text-sm text-forest block font-serif">시향 및 테스팅 (Active Evaluation)</strong>
+                <p class="text-xs text-stone-600 mt-0.5">손등 발림성과 향의 탑·베이스 노트 체험. 질감의 끈적임 여부 등 감각적 불만 제거</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-wood/25 flex items-start gap-3.5">
+              <span class="w-7 h-7 rounded-full bg-forest-light text-parchment text-xs font-bold flex items-center justify-center shrink-0">3</span>
+              <div>
+                <strong class="text-sm text-forest block font-serif">구매 결단 (Moment of Purchase)</strong>
+                <p class="text-xs text-stone-600 mt-0.5">"이 성분은 고객님의 현 피부 상태에 최적입니다"라는 확신을 주는 현장 셀링 훅</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-white rounded-2xl border border-wood/25 flex items-start gap-3.5">
+              <span class="w-7 h-7 rounded-full bg-wood-deep text-parchment text-xs font-bold flex items-center justify-center shrink-0">4</span>
+              <div>
+                <strong class="text-sm text-forest block font-serif">재구매 & 팬덤 락인 (Loyalty Loop)</strong>
+                <p class="text-xs text-stone-600 mt-0.5">일상의 기분 전환 루틴으로 브랜드가 스며들어 자발적인 재구매와 지인 추천 발생</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Fragrance Wheel Interaction -->
+        <div class="lg:col-span-6 bg-white p-6 sm:p-8 rounded-3xl editorial-border soft-shadow flex flex-col items-center">
+          <div class="w-full flex justify-between items-center mb-3">
+            <span class="text-xs font-bold text-forest uppercase tracking-wider">Fragrance & Branding Accord Wheel</span>
+            <span class="text-[11px] text-stone-400">클릭하여 해석 전환</span>
+          </div>
+
+          <!-- Wheel container -->
+          <div id="fragrance-wheel-container" class="w-full flex justify-center items-center min-h-[360px]">
+            <!-- D3 Accord Wheel Appends Here -->
+          </div>
+
+          <!-- Accord Detail Info Box below Wheel -->
+          <div id="accord-detail-card" class="w-full mt-4 p-5 bg-sand/70 rounded-2xl border border-wood/30 transition-all duration-300">
+            <div class="flex items-center justify-between mb-1.5">
+              <h4 id="accord-title" class="font-serif text-lg font-bold text-forest">Woody Accord (우디)</h4>
+              <span id="accord-category" class="text-[10px] px-2.5 py-0.5 rounded bg-forest text-parchment font-medium font-mono">Base Foundation</span>
+            </div>
+            <p id="accord-desc" class="text-xs text-stone-700 leading-relaxed mb-2">
+              샌달우드처럼 오랜 시간 잔향을 유지하는 베이스. 비즈니스에서는 변치 않는 브랜드의 철학과 확고한 코어 밸류를 상징합니다.
+            </p>
+            <div class="flex items-center gap-1.5 text-xs text-wood-deep font-medium">
+              <i data-lucide="compass" class="w-3.5 h-3.5"></i>
+              <span id="accord-scent">대표 무드: 깊은 숲, 고요함, 단단한 신뢰</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle & 3 Passions -->
+  <section id="lifestyle" class="py-20 bg-parchment border-b border-wood/20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-widest font-semibold text-wood-deep font-display">Personal Aesthetics</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest mt-1">영감의 원천이 되는 세 가지 취향</h2>
+        <p class="text-sm text-ink/75 mt-2">
+          단순한 여가를 넘어 직무적 감각과 통찰을 정교하게 벼려내는 신동현의 3대 라이프스타일입니다.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 1: Skincare & Men's Cosmetics -->
+        <div class="group bg-white rounded-3xl p-8 editorial-border soft-shadow hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-wood-light text-forest flex items-center justify-center mb-6 group-hover:bg-forest group-hover:text-parchment transition-colors shadow-sm">
+              <i data-lucide="sparkles" class="w-7 h-7"></i>
+            </div>
+            <div class="flex items-center justify-between text-xs text-wood-deep font-semibold mb-2">
+              <span>FAVORITE 01</span>
+              <span>SKINCARE & GROOMING</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest mb-3">기초 & 남성 코스메틱</h3>
+            <p class="text-sm text-stone-600 leading-relaxed mb-6">
+              각 성분표(EWG 등급, 활성 성분 배합비)와 피부 장벽 보호 매커니즘을 분석합니다. 남성 그루밍 시장의 진화와 젠더리스 뷰티의 패키지 미학을 직접 체험하며 신규 브랜드 소구를 탐구합니다.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-sand flex items-center justify-between text-xs text-forest/75 font-medium">
+            <span>핵심 연결 고리</span>
+            <strong class="font-bold text-forest">원료 분석 · 젠더리스 뷰티</strong>
+          </div>
+        </div>
+
+        <!-- 2: Specialty Coffee -->
+        <div class="group bg-white rounded-3xl p-8 editorial-border soft-shadow hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-sand text-wood-deep flex items-center justify-center mb-6 group-hover:bg-wood group-hover:text-parchment transition-colors shadow-sm border border-wood/30">
+              <i data-lucide="coffee" class="w-7 h-7"></i>
+            </div>
+            <div class="flex items-center justify-between text-xs text-wood-deep font-semibold mb-2">
+              <span>FAVORITE 02</span>
+              <span>RITUAL & AROMA</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest mb-3">스페셜티 커피의 세계</h3>
+            <p class="text-sm text-stone-600 leading-relaxed mb-6">
+              원두의 테루아(Terroir), 가공 프로세싱, 브루잉 변수에 따른 플레이버 노트를 음미합니다. 균형 잡힌 커피 한 잔처럼 비즈니스에서도 디테일의 밸런스를 조율하는 감각을 기릅니다.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-sand flex items-center justify-between text-xs text-forest/75 font-medium">
+            <span>핵심 연결 고리</span>
+            <strong class="font-bold text-forest">미세 변수 튜닝 · 오감 큐레이션</strong>
+          </div>
+        </div>
+
+        <!-- 3: Mindful Walk -->
+        <div class="group bg-white rounded-3xl p-8 editorial-border soft-shadow hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-forest-subtle text-forest flex items-center justify-center mb-6 group-hover:bg-forest group-hover:text-parchment transition-colors shadow-sm">
+              <i data-lucide="footprints" class="w-7 h-7"></i>
+            </div>
+            <div class="flex items-center justify-between text-xs text-wood-deep font-semibold mb-2">
+              <span>FAVORITE 03</span>
+              <span>WALK & CONTEMPLATION</span>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-forest mb-3">생각을 정돈하는 산책</h3>
+            <p class="text-sm text-stone-600 leading-relaxed mb-6">
+              복잡한 데이터와 마케팅 가설을 덜어내고 본질에 집중하는 데일리 리추얼입니다. 도시의 오프라인 팝업과 거리를 걷는 소비자들을 관찰하며 생생한 기획 아이디어를 정립합니다.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-sand flex items-center justify-between text-xs text-forest/75 font-medium">
+            <span>핵심 연결 고리</span>
+            <strong class="font-bold text-forest">도심 관찰 · 아이디어 환기</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Roadmap to Luminary -->
+      <div class="mt-16 bg-white rounded-3xl p-8 sm:p-10 editorial-border soft-shadow">
+        <div class="max-w-xl mb-8">
+          <span class="text-xs uppercase tracking-widest font-semibold text-wood-deep font-display">Career Milestone</span>
+          <h3 class="font-serif text-2xl font-bold text-forest mt-1">거두(巨頭)로 향하는 3단계 비전 로드맵</h3>
+          <p class="text-xs sm:text-sm text-stone-600 mt-2">
+            "모든 분야의 거두가 되자"라는 목표를 체계적으로 실현하기 위한 신동현의 실행 계획입니다.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-parchment border border-wood/20">
+            <span class="text-xs font-mono font-bold text-wood">PHASE 01 · 현재</span>
+            <h4 class="font-serif text-lg font-bold text-forest mt-2 mb-1.5">현장 감각과 경영학의 체화</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              경영학 3학년 심화 전공 지식, 올리브영 현장 소비자 분석 데이터, 글로벌 연합기지 소통 경험의 유기적 결합.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-parchment border border-wood/20">
+            <span class="text-xs font-mono font-bold text-forest">PHASE 02 · 차기 도약</span>
+            <h4 class="font-serif text-lg font-bold text-forest mt-2 mb-1.5">브랜드 캠페인 실전 리드</h4>
+            <p class="text-xs text-stone-600 leading-relaxed">
+              뷰티 & 라이프스타일 브랜드 마케팅팀 인턴십 및 실무 프로젝트 주도. 타깃별 CDJ 전환율 개선 실적 달성.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-forest text-parchment">
+            <span class="text-xs font-mono font-bold text-wood-warm">PHASE 03 · 최종 지향</span>
+            <h4 class="font-serif text-lg font-bold text-parchment mt-2 mb-1.5">모든 분야의 독보적 거두</h4>
+            <p class="text-xs text-stone-300 leading-relaxed">
+              시장 분석과 예술적 브랜딩을 통합 지휘하는 총괄 디렉터로서, 업계가 주목하는 새로운 기준과 문화를 정립.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer & Contact Initiation -->
+  <footer id="contact" class="py-16 bg-forest text-parchment relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-b border-white/10 pb-12">
+        <div class="lg:col-span-8 space-y-4">
+          <span class="text-xs uppercase tracking-widest text-wood-warm font-semibold font-display">Ready for Connection</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold leading-tight">
+            신뢰할 수 있는 실행력과 감각을 지닌 인재,<br>
+            <span class="font-bold text-wood-warm">신동현과 함께할 기업을 기다립니다.</span>
+          </h2>
+          <p class="text-sm text-stone-300 max-w-xl leading-relaxed">
+            인턴십, 뷰티 마케팅 프로젝트, 브랜드 전략 협업은 물론, 코스메틱과 커피에 대한 진솔한 티타임 제안까지 열려 있습니다.
+          </p>
+        </div>
+
+        <div class="lg:col-span-4 flex flex-col gap-3">
+          <button onclick="copyContact('mixhyun@gmail.com')" class="w-full py-3.5 px-6 rounded-xl bg-wood text-forest font-semibold text-sm hover:bg-wood-warm transition-all flex items-center justify-center gap-2 shadow-lg">
+            <i data-lucide="copy" class="w-4 h-4"></i> 이메일 주소 복사 (mixhyun@gmail.com)
+          </button>
+          <a href="mailto:mixhyun@gmail.com" class="w-full py-3.5 px-6 rounded-xl bg-forest-light text-parchment font-semibold text-sm hover:bg-forest-subtle hover:text-forest transition-all flex items-center justify-center gap-2 border border-white/10 text-center">
+            <i data-lucide="send" class="w-4 h-4"></i> 바로 메일 발송하기
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+        <p>© 2026 Shin Donghyeon (신동현). All Rights Reserved.</p>
+        <div class="flex items-center gap-6">
+          <span>경영학과 3학년</span>
+          <span>공군 병장 만기전역 (OSAN AB)</span>
+          <span>올리브영 고객분석</span>
+          <span>ESFJ</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- D3 Charts & Interaction Script -->
+  <script>
+    lucide.createIcons();
+
+    function copyContact(text) {
+      const tempInput = document.createElement("input");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+
+      const toast = document.getElementById("copy-toast");
+      if(toast) {
+        toast.style.opacity = "1";
+        setTimeout(() => {
+          toast.style.opacity = "0";
+        }, 2500);
+      }
+    }
+
+    // 1. D3 Radar Chart Implementation (글씨 잘림 원천 방지: 여백 85px & 두 줄 tspan 분기)
+    function renderRadarChart() {
+      const container = document.getElementById("radar-container");
+      if (!container) return;
+      container.innerHTML = "";
+
+      // 컨테이너 너비와 높이를 넉넉하게 산정 (viewBox 460 기준)
+      const width = 460;
+      const height = 420;
+      const margin = 85; // 텍스트 영역을 위해 반경 여백을 85px로 충분히 확보
+      const radius = (Math.min(width, height) / 2) - margin;
+
+      const data = [
+        { axis: "뷰티 마케팅·브랜딩", line1: "뷰티 마케팅·브랜딩", line2: "(96점)", value: 0.96, score: "96점" },
+        { axis: "CDJ 구매여정 분석", line1: "CDJ 구매여정", line2: "분석 (94점)", value: 0.94, score: "94점" },
+        { axis: "글로벌 협업(OSAN AB)", line1: "글로벌 협업", line2: "(OSAN AB 92점)", value: 0.92, score: "92점" },
+        { axis: "타깃별 현장 셀링", line1: "타깃별 현장 셀링", line2: "(90점)", value: 0.90, score: "90점" },
+        { axis: "팀 시너지(ESFJ)", line1: "팀 시너지", line2: "(ESFJ 95점)", value: 0.95, score: "95점" },
+      ];
+
+      const totalAxes = data.length;
+      const angleSlice = (Math.PI * 2) / totalAxes;
+
+      const svg = d3.select("#radar-container")
+        .append("svg")
+        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("preserveAspectRatio", "xMidYMid meet")
+        .style("width", "100%")
+        .style("height", "auto")
+        .style("overflow", "visible")
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${(height / 2) + 5})`);
+
+      const tooltip = d3.select("#d3-tooltip");
+
+      // 동심 가이드라인
+      const levels = 4;
+      for (let level = 1; level <= levels; level++) {
+        const r = (radius / levels) * level;
+        svg.append("circle")
+          .attr("r", r)
+          .style("fill", "none")
+          .style("stroke", "#b28d68")
+          .style("stroke-opacity", "0.25")
+          .style("stroke-dasharray", level === levels ? "none" : "3,3");
+      }
+
+      // 축 선
+      const axes = svg.selectAll(".axis")
+        .data(data)
+        .enter()
+        .append("g")
+        .attr("class", "axis");
+
+      axes.append("line")
+        .attr("x1", 0)
+        .attr("y1", 0)
+        .attr("x2", (d, i) => radius * Math.cos(angleSlice * i - Math.PI / 2))
+        .attr("y2", (d, i) => radius * Math.sin(angleSlice * i - Math.PI / 2))
+        .style("stroke", "#b28d68")
+        .style("stroke-opacity", "0.3")
+        .style("stroke-width", "1px");
+
+      // 레이더 다각형 영역
+      const rScale = d3.scaleLinear().range([0, radius]).domain([0, 1]);
+
+      const radarLine = d3.lineRadial()
+        .curve(d3.curveLinearClosed)
+        .radius(d => rScale(d.value))
+        .angle((d, i) => i * angleSlice);
+
+      svg.append("path")
+        .datum(data)
+        .attr("d", radarLine)
+        .style("fill", "#1c3427")
+        .style("fill-opacity", "0.22")
+        .style("stroke", "#1c3427")
+        .style("stroke-width", "2.5px")
+        .style("filter", "drop-shadow(0px 4px 10px rgba(28, 52, 39, 0.15))");
+
+      // 꼭짓점 원형 포인트
+      svg.selectAll(".radar-circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("class", "radar-circle")
+        .attr("r", 5.5)
+        .attr("cx", (d, i) => rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2))
+        .attr("cy", (d, i) => rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2))
+        .style("fill", "#b28d68")
+        .style("stroke", "#ffffff")
+        .style("stroke-width", "2px")
+        .style("cursor", "pointer")
+        .on("mouseover", function(event, d) {
+          d3.select(this).transition().duration(150).attr("r", 8).style("fill", "#1c3427");
+          tooltip.html(`<strong>${d.axis}</strong>: ${d.score}`)
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 28) + "px")
+            .style("opacity", 1);
+        })
+        .on("mouseout", function() {
+          d3.select(this).transition().duration(150).attr("r", 5.5).style("fill", "#b28d68");
+          tooltip.style("opacity", 0);
+        });
+
+      // 텍스트 라벨 (두 줄 분리 & 안전 오프셋 배치로 절대 잘리지 않음)
+      const textNodes = axes.append("text")
+        .attr("x", (d, i) => {
+          const angle = angleSlice * i - Math.PI / 2;
+          const labelDist = radius + 24;
+          return labelDist * Math.cos(angle);
+        })
+        .attr("y", (d, i) => {
+          const angle = angleSlice * i - Math.PI / 2;
+          const labelDist = radius + 22;
+          return labelDist * Math.sin(angle);
+        })
+        .attr("text-anchor", (d, i) => {
+          const angle = (angleSlice * i) % (Math.PI * 2);
+          if (Math.abs(angle) < 0.1) return "middle";
+          return (angle > 0 && angle < Math.PI) ? "start" : "end";
+        })
+        .style("font-size", "11px")
+        .style("font-weight", "700")
+        .style("fill", "#1c3427")
+        .style("paint-order", "stroke")
+        .style("stroke", "#ffffff")
+        .style("stroke-width", "3.5px")
+        .style("stroke-linejoin", "round");
+
+      // 1줄: 메인 항목명
+      textNodes.append("tspan")
+        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
+        .attr("dy", (d, i) => {
+          const angle = angleSlice * i - Math.PI / 2;
+          if (Math.sin(angle) < -0.8) return "-0.7em";
+          return "0em";
+        })
+        .text(d => d.line1);
+
+      // 2줄: 부가 정보 및 점수
+      textNodes.append("tspan")
+        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
+        .attr("dy", "1.25em")
+        .style("fill", "#735336")
+        .style("font-size", "9.5px")
+        .text(d => d.line2);
+    }
+
+    // 2. High-Performance Smoothed Accord Wheel Implementation
+    const accordInfo = {
+      woody: {
+        title: "Woody Accord (우디)",
+        category: "Base · 지속성과 신뢰",
+        desc: "샌달우드처럼 오랜 시간 묵직한 잔향을 유지하는 베이스. 비즈니스에서는 변치 않는 브랜드의 철학과 확고한 코어 밸류를 상징합니다.",
+        scent: "대표 무드: 깊은 숲, 고요함, 단단한 신뢰",
+        color: "#735336"
+      },
+      citrus: {
+        title: "Citrus Accord (시트러스)",
+        category: "Top · 즉각적인 훅",
+        desc: "베르가못, 만다린처럼 매장에 들어선 고객의 시선을 3초 안에 사로잡는 첫인상. 직관적인 매대 POP와 카피라이팅을 은유합니다.",
+        scent: "대표 무드: 신선한 생기, 즉각적 반응, 에너지",
+        color: "#c8a27d"
+      },
+      floral: {
+        title: "Floral Accord (플로럴)",
+        category: "Heart · 공감대와 유대",
+        desc: "네롤리처럼 고객의 피부 고민을 경청하고 다정한 솔루션을 제시하는 온화함. 고객과의 정서적 신뢰를 상징합니다.",
+        scent: "대표 무드: 부드러운 배려, 우아함, 인간적 호감",
+        color: "#b28d68"
+      },
+      aromatic: {
+        title: "Aromatic Accord (아로마틱)",
+        category: "Heart-Top · 지적 분석",
+        desc: "세이지와 로즈마리의 명료함. 감정에 치우치지 않고 CDJ 단계별 데이터를 분석해 정확한 타깃 소구점을 발굴하는 지성을 의미합니다.",
+        scent: "대표 무드: 명료한 통찰, 데이터 분석력, 균형감",
+        color: "#1c3427"
+      },
+      musk: {
+        title: "Musk & Amber (머스크)",
+        category: "Base · 지속적 팬덤",
+        desc: "살결 위에 은은하게 머무는 친밀한 여운. 일상 속에서 고객이 브랜드를 계속 찾게 만드는 충성도 락인(Lock-in)입니다.",
+        scent: "대표 무드: 거두의 잔향, 잊히지 않는 존재감, 로열티",
+        color: "#2a4a39"
+      }
+    };
+
+    let selectedAccordId = "woody";
+
+    function updateAccordDetail(key) {
+      const info = accordInfo[key];
+      if (!info) return;
+      selectedAccordId = key;
+
+      const card = document.getElementById("accord-detail-card");
+      card.style.opacity = "0.4";
+
+      setTimeout(() => {
+        document.getElementById("accord-title").innerText = info.title;
+        const catEl = document.getElementById("accord-category");
+        catEl.innerText = info.category;
+        catEl.style.backgroundColor = info.color;
+        document.getElementById("accord-desc").innerText = info.desc;
+        document.getElementById("accord-scent").innerText = info.scent;
+        card.style.opacity = "1";
+      }, 150);
+
+      d3.selectAll(".wheel-active-ring")
+        .transition().duration(250)
+        .style("opacity", d => d.id === key ? 1 : 0);
+    }
+
+    function renderFragranceWheel() {
+      const container = document.getElementById("fragrance-wheel-container");
+      if (!container) return;
+      container.innerHTML = "";
+
+      const width = Math.min(container.clientWidth || 360, 360);
+      const height = width;
+      const radius = (width / 2) - 34;
+
+      const accords = [
+        { id: "citrus", label: "시트러스", note: "첫 만남의 훅", angle: 0, color: "#c8a27d" },
+        { id: "aromatic", label: "아로마틱", note: "지적 통찰", angle: 72, color: "#1c3427" },
+        { id: "floral", label: "플로럴", note: "공감대 형성", angle: 144, color: "#b28d68" },
+        { id: "woody", label: "우디", note: "확고한 본질", angle: 216, color: "#735336" },
+        { id: "musk", label: "머스크", note: "팬덤 락인", angle: 288, color: "#2a4a39" }
+      ];
+
+      const svg = d3.select("#fragrance-wheel-container")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+      svg.append("circle")
+        .attr("r", radius)
+        .style("fill", "none")
+        .style("stroke", "#b28d68")
+        .style("stroke-width", "1px")
+        .style("stroke-opacity", "0.35")
+        .style("stroke-dasharray", "4,4");
+
+      svg.append("circle")
+        .attr("r", radius * 0.46)
+        .style("fill", "#fdfbf7")
+        .style("stroke", "#1c3427")
+        .style("stroke-width", "1.5px")
+        .style("stroke-opacity", "0.25");
+
+      svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "-0.15em")
+        .style("font-family", "Cormorant Garamond")
+        .style("font-size", "15px")
+        .style("font-weight", "bold")
+        .style("fill", "#1c3427")
+        .text("ACCORDS");
+
+      svg.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "1.25em")
+        .style("font-family", "Pretendard")
+        .style("font-size", "9.5px")
+        .style("font-weight", "600")
+        .style("fill", "#735336")
+        .style("letter-spacing", "1px")
+        .text("브랜딩 휠");
+
+      const nodes = svg.selectAll(".wheel-node-group")
+        .data(accords)
+        .enter()
+        .append("g")
+        .attr("class", "wheel-node-group")
+        .attr("transform", d => {
+          const rad = (d.angle - 90) * (Math.PI / 180);
+          return `translate(${radius * Math.cos(rad)}, ${radius * Math.sin(rad)})`;
+        })
+        .on("click", (event, d) => {
+          updateAccordDetail(d.id);
+        })
+        .on("mouseenter", function(event, d) {
+          d3.select(this).select(".wheel-main-circle")
+            .transition().duration(200)
+            .attr("r", 32)
+            .style("stroke", "#1c3427")
+            .style("stroke-width", "2.5px");
+        })
+        .on("mouseleave", function(event, d) {
+          d3.select(this).select(".wheel-main-circle")
+            .transition().duration(200)
+            .attr("r", 28)
+            .style("stroke", "#ffffff")
+            .style("stroke-width", "2px");
+        });
+
+      nodes.append("circle")
+        .attr("class", "wheel-active-ring")
+        .attr("r", 36)
+        .style("fill", "none")
+        .style("stroke", d => d.color)
+        .style("stroke-width", "2px")
+        .style("stroke-dasharray", "3,3")
+        .style("opacity", d => d.id === selectedAccordId ? 1 : 0);
+
+      nodes.append("circle")
+        .attr("class", "wheel-main-circle wheel-node-circle")
+        .attr("r", 28)
+        .style("fill", d => d.color)
+        .style("stroke", "#ffffff")
+        .style("stroke-width", "2px")
+        .style("filter", "drop-shadow(0 3px 6px rgba(0,0,0,0.18))");
+
+      nodes.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "-0.2em")
+        .style("fill", "#ffffff")
+        .style("font-size", "9.5px")
+        .style("font-weight", "bold")
+        .style("pointer-events", "none")
+        .text(d => d.label);
+
+      nodes.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "1.15em")
+        .style("fill", "rgba(255,255,255,0.9)")
+        .style("font-size", "8px")
+        .style("font-weight", "500")
+        .style("pointer-events", "none")
+        .text(d => d.note);
+    }
+
+    // Responsive Handlers
+    window.addEventListener("resize", () => {
+      renderRadarChart();
+      renderFragranceWheel();
+    });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      renderRadarChart();
+      renderFragranceWheel();
+    });
+  </script>
+</body>
+</html>
