@@ -199,39 +199,41 @@
           </div>
         </div>
 
-        <!-- Right Side: 증명사진 규격 상반신 포커스 카드 -->
+        <!-- Right Side: Atelier Branding Card (사진 제외 / 브랜드 시그니처 엠블럼으로 전환) -->
         <div class="lg:col-span-5 flex justify-center">
-          <div class="w-full max-w-md bg-white rounded-3xl p-7 editorial-border soft-shadow relative">
-            <div class="w-full rounded-2xl bg-gradient-to-br from-sand via-parchment to-wood-light flex flex-col items-center p-6 relative overflow-hidden border border-wood/20">
-              
-              <div class="w-full flex justify-between items-center mb-4 z-10">
-                <span class="font-serif text-2xl text-forest font-bold tracking-tight">PROFILE</span>
-                <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-forest text-parchment">OFFICIAL</span>
+          <div class="w-full max-w-md bg-white rounded-3xl p-8 editorial-border soft-shadow relative">
+            <div class="w-full aspect-[4/5] rounded-2xl bg-gradient-to-br from-sand via-parchment to-wood-light flex flex-col justify-between p-7 relative overflow-hidden border border-wood/20">
+              <div class="flex justify-between items-start z-10">
+                <span class="font-serif text-3xl text-forest font-bold">SDH.</span>
+                <div class="w-10 h-10 rounded-full bg-forest text-parchment flex items-center justify-center shadow-md">
+                  <i data-lucide="compass" class="w-5 h-5"></i>
+                </div>
               </div>
 
-              <!-- 증명사진 비율(3:4) & 상반신 중심 배치 컨테이너 -->
-              <div class="relative w-44 sm:w-48 aspect-[3/4] rounded-2xl overflow-hidden shadow-lg border-4 border-white bg-sand/40 mb-4 group">
-                <img 
-                  src="./profile.png" 
-                  alt="신동현 프로필 사진" 
-                  class="w-full h-full object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
-                />
-                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl pointer-events-none"></div>
+              <!-- 미니멀 타이포그래피 & 엠블럼 디자인 (사진 영역 대체) -->
+              <div class="my-auto flex flex-col items-center justify-center text-center space-y-4 relative z-10">
+                <div class="w-24 h-24 rounded-full bg-white/90 border-2 border-wood/40 flex items-center justify-center shadow-sm relative">
+                  <span class="font-serif text-3xl font-bold text-forest">SD</span>
+                  <div class="absolute -bottom-2 px-2.5 py-0.5 rounded-full bg-forest text-parchment text-[9px] font-mono tracking-widest uppercase">
+                    Core
+                  </div>
+                </div>
+                
+                <div class="space-y-1">
+                  <h3 class="font-serif text-2xl font-bold text-forest">Shin Donghyeon</h3>
+                  <p class="text-xs font-semibold text-wood-deep">Business & Beauty Brand Strategist</p>
+                  <p class="text-[11px] text-stone-500 font-mono tracking-wider">Sense × Logic × Execution</p>
+                </div>
               </div>
 
-              <div class="text-center space-y-1 mb-2">
-                <h4 class="font-serif text-xl font-bold text-forest">신동현 <span class="font-sans text-xs font-semibold text-wood-deep ml-1">Shin Donghyeon</span></h4>
-                <p class="text-xs text-stone-600 font-medium">경영학과 3학년 · 뷰티 브랜드 기획자</p>
-              </div>
-
-              <div class="w-full pt-3 mt-1 border-t border-wood/25 flex justify-between items-center text-xs text-ink/80 z-10">
-                <span class="font-semibold text-forest">2003년생 (만 23세)</span>
+              <div class="pt-3 border-t border-wood/25 flex justify-between items-center text-xs text-ink/80 z-10">
+                <span class="font-semibold text-forest">신동현 (2003)</span>
                 <span class="font-mono text-wood-deep">mixhyun@gmail.com</span>
               </div>
             </div>
 
             <!-- Recruiter Quick Summary Action -->
-            <div class="mt-5 flex items-center justify-between gap-3">
+            <div class="mt-6 flex items-center justify-between gap-3">
               <a href="#experience" class="flex-1 py-3 px-4 bg-forest text-parchment rounded-xl text-center text-xs font-semibold hover:bg-forest-light transition-all flex items-center justify-center gap-1.5">
                 <i data-lucide="file-text" class="w-3.5 h-3.5"></i> 실무 이력 자세히 보기
               </a>
@@ -443,7 +445,7 @@
     </div>
   </section>
 
-  <!-- D3 Radar & 5-Dimension Competencies (글씨 잘림 해결 섹션) -->
+  <!-- D3 Radar & 5-Dimension Competencies -->
   <section id="insights" class="py-20 bg-parchment border-b border-wood/20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-12">
@@ -455,16 +457,16 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        <!-- D3 Radar Chart Card (여백 및 overflow-visible 처리) -->
-        <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-3xl editorial-border soft-shadow flex flex-col items-center justify-center relative">
-          <div class="flex items-center justify-between w-full mb-3">
+        <!-- D3 Radar Chart Card -->
+        <div class="lg:col-span-7 bg-white p-4 sm:p-7 rounded-3xl editorial-border soft-shadow flex flex-col items-center justify-center relative">
+          <div class="flex items-center justify-between w-full mb-3 px-2">
             <h3 class="text-sm font-bold text-forest uppercase tracking-wider flex items-center gap-2">
               <i data-lucide="radar" class="w-4 h-4 text-wood"></i> 다차원 실무 역량 밸런스
             </h3>
             <span class="text-[11px] text-wood-deep font-mono bg-wood-light px-2.5 py-0.5 rounded">D3.js SVG Dynamic</span>
           </div>
 
-          <div id="radar-container" class="w-full flex justify-center items-center min-h-[420px] overflow-visible">
+          <div id="radar-container" class="w-full flex justify-center items-center min-h-[380px] p-2">
             <!-- D3 Radar Appends Here -->
           </div>
           <p class="text-[11px] text-stone-400 mt-2">* 각 꼭짓점 노드에 마우스를 올리면 세부 점수와 역량 항목이 표시됩니다.</p>
@@ -586,12 +588,10 @@
             <span class="text-[11px] text-stone-400">클릭하여 해석 전환</span>
           </div>
 
-          <!-- Wheel container -->
           <div id="fragrance-wheel-container" class="w-full flex justify-center items-center min-h-[360px]">
             <!-- D3 Accord Wheel Appends Here -->
           </div>
 
-          <!-- Accord Detail Info Box below Wheel -->
           <div id="accord-detail-card" class="w-full mt-4 p-5 bg-sand/70 rounded-2xl border border-wood/30 transition-all duration-300">
             <div class="flex items-center justify-between mb-1.5">
               <h4 id="accord-title" class="font-serif text-lg font-bold text-forest">Woody Accord (우디)</h4>
@@ -783,24 +783,22 @@
       }
     }
 
-    // 1. D3 Radar Chart Implementation (글씨 잘림 원천 방지: 여백 85px & 두 줄 tspan 분기)
+    // 1. D3 Radar Chart Implementation
     function renderRadarChart() {
       const container = document.getElementById("radar-container");
       if (!container) return;
       container.innerHTML = "";
 
-      // 컨테이너 너비와 높이를 넉넉하게 산정 (viewBox 460 기준)
-      const width = 460;
-      const height = 420;
-      const margin = 85; // 텍스트 영역을 위해 반경 여백을 85px로 충분히 확보
-      const radius = (Math.min(width, height) / 2) - margin;
+      const svgSize = 440;
+      const margin = 90;
+      const radius = (svgSize / 2) - margin;
 
       const data = [
-        { axis: "뷰티 마케팅·브랜딩", line1: "뷰티 마케팅·브랜딩", line2: "(96점)", value: 0.96, score: "96점" },
-        { axis: "CDJ 구매여정 분석", line1: "CDJ 구매여정", line2: "분석 (94점)", value: 0.94, score: "94점" },
-        { axis: "글로벌 협업(OSAN AB)", line1: "글로벌 협업", line2: "(OSAN AB 92점)", value: 0.92, score: "92점" },
-        { axis: "타깃별 현장 셀링", line1: "타깃별 현장 셀링", line2: "(90점)", value: 0.90, score: "90점" },
-        { axis: "팀 시너지(ESFJ)", line1: "팀 시너지", line2: "(ESFJ 95점)", value: 0.95, score: "95점" },
+        { axis: "뷰티 마케팅·브랜딩", value: 0.96, score: "96점" },
+        { axis: "CDJ 구매여정 분석", value: 0.94, score: "94점" },
+        { axis: "글로벌 협업(OSAN AB)", value: 0.92, score: "92점" },
+        { axis: "타깃별 현장 셀링", value: 0.90, score: "90점" },
+        { axis: "팀 시너지 (ESFJ)", value: 0.95, score: "95점" },
       ];
 
       const totalAxes = data.length;
@@ -808,17 +806,16 @@
 
       const svg = d3.select("#radar-container")
         .append("svg")
-        .attr("viewBox", `0 0 ${width} ${height}`)
+        .attr("viewBox", `0 0 ${svgSize} ${svgSize}`)
         .attr("preserveAspectRatio", "xMidYMid meet")
         .style("width", "100%")
+        .style("max-width", "420px")
         .style("height", "auto")
-        .style("overflow", "visible")
         .append("g")
-        .attr("transform", `translate(${width / 2}, ${(height / 2) + 5})`);
+        .attr("transform", `translate(${svgSize / 2}, ${svgSize / 2})`);
 
       const tooltip = d3.select("#d3-tooltip");
 
-      // 동심 가이드라인
       const levels = 4;
       for (let level = 1; level <= levels; level++) {
         const r = (radius / levels) * level;
@@ -830,7 +827,6 @@
           .style("stroke-dasharray", level === levels ? "none" : "3,3");
       }
 
-      // 축 선
       const axes = svg.selectAll(".axis")
         .data(data)
         .enter()
@@ -846,7 +842,6 @@
         .style("stroke-opacity", "0.3")
         .style("stroke-width", "1px");
 
-      // 레이더 다각형 영역
       const rScale = d3.scaleLinear().range([0, radius]).domain([0, 1]);
 
       const radarLine = d3.lineRadial()
@@ -863,13 +858,12 @@
         .style("stroke-width", "2.5px")
         .style("filter", "drop-shadow(0px 4px 10px rgba(28, 52, 39, 0.15))");
 
-      // 꼭짓점 원형 포인트
       svg.selectAll(".radar-circle")
         .data(data)
         .enter()
         .append("circle")
         .attr("class", "radar-circle")
-        .attr("r", 5.5)
+        .attr("r", 5)
         .attr("cx", (d, i) => rScale(d.value) * Math.cos(angleSlice * i - Math.PI / 2))
         .attr("cy", (d, i) => rScale(d.value) * Math.sin(angleSlice * i - Math.PI / 2))
         .style("fill", "#b28d68")
@@ -884,12 +878,11 @@
             .style("opacity", 1);
         })
         .on("mouseout", function() {
-          d3.select(this).transition().duration(150).attr("r", 5.5).style("fill", "#b28d68");
+          d3.select(this).transition().duration(150).attr("r", 5).style("fill", "#b28d68");
           tooltip.style("opacity", 0);
         });
 
-      // 텍스트 라벨 (두 줄 분리 & 안전 오프셋 배치로 절대 잘리지 않음)
-      const textNodes = axes.append("text")
+      axes.append("text")
         .attr("x", (d, i) => {
           const angle = angleSlice * i - Math.PI / 2;
           const labelDist = radius + 24;
@@ -897,39 +890,27 @@
         })
         .attr("y", (d, i) => {
           const angle = angleSlice * i - Math.PI / 2;
-          const labelDist = radius + 22;
+          const labelDist = radius + 24;
           return labelDist * Math.sin(angle);
         })
         .attr("text-anchor", (d, i) => {
-          const angle = (angleSlice * i) % (Math.PI * 2);
-          if (Math.abs(angle) < 0.1) return "middle";
-          return (angle > 0 && angle < Math.PI) ? "start" : "end";
+          if (i === 0) return "middle";
+          if (i === 1 || i === 2) return "start";
+          return "end";
         })
-        .style("font-size", "11px")
+        .attr("dy", (d, i) => {
+          if (i === 0) return "-0.6em";
+          if (i === 2 || i === 3) return "0.9em";
+          return "0.35em";
+        })
+        .style("font-size", "11.5px")
         .style("font-weight", "700")
         .style("fill", "#1c3427")
         .style("paint-order", "stroke")
         .style("stroke", "#ffffff")
         .style("stroke-width", "3.5px")
-        .style("stroke-linejoin", "round");
-
-      // 1줄: 메인 항목명
-      textNodes.append("tspan")
-        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
-        .attr("dy", (d, i) => {
-          const angle = angleSlice * i - Math.PI / 2;
-          if (Math.sin(angle) < -0.8) return "-0.7em";
-          return "0em";
-        })
-        .text(d => d.line1);
-
-      // 2줄: 부가 정보 및 점수
-      textNodes.append("tspan")
-        .attr("x", function() { return d3.select(this.parentNode).attr("x"); })
-        .attr("dy", "1.25em")
-        .style("fill", "#735336")
-        .style("font-size", "9.5px")
-        .text(d => d.line2);
+        .style("stroke-linejoin", "round")
+        .text(d => d.axis);
     }
 
     // 2. High-Performance Smoothed Accord Wheel Implementation
